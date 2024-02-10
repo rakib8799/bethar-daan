@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathar Daan Medical Center</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body style="font-family: Arial, sans-serif;">
+
+    <div style="display: flex;">
+        <div style="width: 30%; padding: 20px; background-color: #f0f0f0;">
+            <h2 style="color: #333;">Sidebar</h2>
+            <textarea style="width: 100%; margin-bottom: 10px; padding: 5px;" placeholder="Text Area 1"></textarea>
+            <textarea style="width: 100%; margin-bottom: 10px; padding: 5px;" placeholder="Text Area 2"></textarea>
+            <textarea style="width: 100%; margin-bottom: 10px; padding: 5px;" placeholder="Text Area 3"></textarea>
+        </div>
+
+        <div style="width: 70%; padding: 20px;">
+            <h2 style="color: #333;">Main Content</h2>
+            <label for="name">Name:</label>
+            <textarea id="name" name="name" style="width: 100%; margin-bottom: 10px; padding: 5px;"></textarea>
+
+            <label for="age">Age:</label>
+            <textarea id="age" name="age" style="width: 100%; margin-bottom: 10px; padding: 5px;"></textarea>
+
+            <h2 style="color: #333;">Additional Information</h2>
+            <textarea style="width: 100%; margin-bottom: 10px; padding: 5px;" placeholder="Additional Text Area 1"></textarea>
+            <textarea style="width: 100%; margin-bottom: 10px; padding: 5px;" placeholder="Additional Text Area 2"></textarea>
+
+            <button style="padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;" onclick="saveAsPDF()">Save as PDF</button>
+        </div>
+    </div>
+
+    <script>
+        function saveAsPDF() {
+            const pdf = new jsPDF();
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const textarea1 = document.querySelector('#sidebar textarea:nth-child(1)').value;
+            const textarea2 = document.querySelector('#sidebar textarea:nth-child(2)').value;
+            const textarea3 = document.querySelector('#sidebar textarea:nth-child(3)').value;
+            const additionalTextarea1 = document.querySelector('#main textarea:nth-child(6)').value;
+            const additionalTextarea2 = document.querySelector('#main textarea:nth-child(7)').value;
+
+            const pdfContent = `
+                Name: ${name}
+                Age: ${age}
+                
+                Sidebar Text Area 1: ${textarea1}
+                Sidebar Text Area 2: ${textarea2}
+                Sidebar Text Area 3: ${textarea3}
+                
+                Additional Text Area 1: ${additionalTextarea1}
+                Additional Text Area 2: ${additionalTextarea2}
+            `;
+
+            pdf.text(pdfContent, 10, 10);
+            pdf.save('form_data.pdf');
+        }
+    </script>
+</body>
+</html>

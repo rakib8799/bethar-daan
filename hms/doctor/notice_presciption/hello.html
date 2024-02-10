@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+	
+	Jatiya Kabi Kazi Nazrul Islam University
+	</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .sidebar {
+            width: 35%;
+            padding: 20px;
+            background-color: #3498db;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        .sidebar textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+
+        .sidebar h2 {
+            font-weight: bold;
+        }
+
+        .sidebar h3 {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .main {
+            width: 80%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        form {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        div h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+            <div>
+			
+                <h2>C/C</h2>
+               
+                <textarea placeholder="Enter C/C here"></textarea>
+            </div>
+            <div>
+			
+                <h2>O/E</h2>
+                
+                <textarea placeholder="Enter O/E here"></textarea>
+            </div>
+            <div>
+			
+                <h2>D/D</h2>
+
+                <textarea placeholder="Enter D/D here"></textarea>
+            </div>
+        </div>
+        
+        <div class="main">
+            <h2> <p align="center"> Prescription <br> 
+			Bathar Daan Medical Center
+			<br> Trishal, Mymensingh </p></h2>
+            <form id="medicalForm">
+                <label for="name">Patient Name:</label>
+                <input type="text" id=" patient name" name="patient name" required>
+                
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" required>
+                
+                <div>
+                    <h3>Investigation</h3>
+                    <textarea placeholder="Enter text here"></textarea>
+                </div>
+                
+                <div>
+                    <h3>Medicine</h3>
+                    <textarea placeholder="Enter text here"></textarea>
+                </div>
+				 <label for="name">Doctor Name:</label>
+                <input type="text" id="doctor name" name="doctor name" required>
+                            <p align="center"> 
+               
+         
+  <button class="btn btn-secondary" id="generate-pdf">Save As Pdf</button>
+  <button class="btn btn-secondary" id="print-pdf">Print/ Save</button>
+  
+
+</p>
+                
+            </form>
+        </div>
+    </div>
+	<script>
+   document.getElementById('generate-pdf').addEventListener('click', function() {
+      const element = document.getElementById('datatable');
+      html2pdf().from(element).save('appointment.pdf');
+    });
+   document.getElementById('print-pdf').addEventListener('click', function() {
+            var actContents = document.getElementById('datatable');
+            window.print();
+         });
+  </script>
+
+
+</body>
+</html>
